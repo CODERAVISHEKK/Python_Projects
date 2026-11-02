@@ -58,7 +58,7 @@ You win!
 ## Project Structure
 
 .
-└── rock_paper_scissors.py
+└── main.py
 
 
 ## Possible Improvements
