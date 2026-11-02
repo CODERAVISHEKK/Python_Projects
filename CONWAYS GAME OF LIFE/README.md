@@ -13,14 +13,13 @@ An interactive **Conway's Game of Life** simulation built with **Python**, **Pyg
 ## Requirements
 
 - Python 3
-- `pygame`
-- `numpy`
+- `pygame'
+- `numpy'
 
 Install the dependencies:
 
-```bash
 pip install pygame numpy
-```
+
 
 ## How to Run
 
@@ -28,9 +27,8 @@ pip install pygame numpy
 2. Open a terminal in the same folder.
 3. Run:
 
-   ```bash
    python game_of_life.py
-   ```
+   
 
 ## Controls
 
@@ -53,10 +51,7 @@ Each generation follows the four classic rules of Conway's Game of Life:
 
 ## Implementation
 
-- `update()` checks each cell's surrounding neighborhood, calculates the next generation, and draws the grid.
-- `main()` initializes the Pygame window, creates the NumPy grid, processes mouse and keyboard input, and runs the simulation loop.
+- 'update()' checks each cell's surrounding neighborhood, calculates the next generation, and draws the grid.
+- 'main()' initializes the Pygame window, creates the NumPy grid, processes mouse and keyboard input, and runs the simulation loop.
 - The initial grid contains only dead cells; users create the starting pattern themselves.
 
-## Note
-
-This README describes the supplied implementation. The neighbor calculation uses NumPy slices, so cells at the grid edges do **not** wrap around to the opposite edge. The current program also does not include a reset button or a way to erase individual cells with the mouse.
