@@ -1,0 +1,1 @@
+A classic Snake Game developed using Python, where players control a snake to collect food, grow longer, and avoid colliding with walls or its own body. The game provides an interactive gaming experience with keyboard controls and score tracking.
