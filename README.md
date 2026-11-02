@@ -1,85 +1,101 @@
-# Tower of Hanoi
+# Banking System
 
-A command-line implementation of the **Tower of Hanoi** puzzle written in Python. The player moves disks between three stacks—Left, Middle, and Right—until all disks have been transferred to the Right stack while following the puzzle's rules.
+A command-line banking application written in Python that uses an SQLite database to store card accounts and their balances. Users can create an account, log in with a card number and PIN, check their balance, add income, transfer money, close an account, and log out.
 
 ## Features
 
-- Text-based, interactive gameplay.
-- Three towers represented using custom stack data structures.
-- Stacks are implemented with linked nodes.
-- Prompts the player to choose a source tower and a destination tower.
-- Prevents placing a larger disk on top of a smaller disk.
-- Displays the current contents of all three stacks after each turn.
-- Calculates and displays the theoretical minimum number of moves.
+- Create a bank account with a generated card number and PIN.
+- Generate card numbers with a Luhn checksum digit.
+- Log in using a card number and PIN.
+- View the account balance.
+- Add income to an account.
+- Transfer money to another existing card account.
+- Validate a recipient card number using the Luhn algorithm.
+- Close an account.
+- Store account information persistently in an SQLite database.
 
 ## Requirements
 
 - Python 3
-- No external libraries are required.
+- SQLite support (included with Python through the `sqlite3` module)
+- No third-party Python packages are required.
 
 ## How to Run
 
-1. Save or download `Towers of Hanoi.py`.
-2. Open a terminal or command prompt in the folder containing the file.
+1. Save `banking.py` to a folder on your computer.
+2. Open a terminal or command prompt in that folder.
 3. Run:
 
    ```bash
-   python "Towers of Hanoi.py"
+   python banking.py
    ```
 
-   On some systems, you may need to use `python3` instead:
+   On some systems, use:
 
    ```bash
-   python3 "Towers of Hanoi.py"
+   python3 banking.py
    ```
 
-4. Enter the number of disks when prompted. The program requires **at least 3 disks**.
+4. Follow the menu displayed in the terminal.
 
-## How to Play
+## Main Menu
 
-The game has three towers:
+When the program starts, it displays these options:
 
-- **Left (L)** — the starting tower; all disks are placed here initially.
-- **Middle (M)** — the auxiliary tower.
-- **Right (R)** — the destination tower.
-
-On each turn:
-
-1. Choose the tower to move a disk **from** by entering `L`, `M`, or `R`.
-2. Choose the tower to move the disk **to**.
-3. Only the top disk of a tower can be moved.
-4. A larger disk cannot be placed on top of a smaller disk.
-5. Continue until every disk is on the Right tower.
-
-The program prints the state of the towers and reports the number of moves used when the puzzle is completed.
-
-## Minimum Number of Moves
-
-For `n` disks, the minimum number of moves required to solve the Tower of Hanoi puzzle is:
-
-\[
-2^n - 1
-\]
-
-The program calculates this value at the beginning and displays it for comparison with the player's move count.
-
-For example, with 3 disks:
-
-\[
-2^3 - 1 = 7
-\]
-
-## Code Structure
-
-| Class / Function | Purpose |
+| Option | Action |
 |---|---|
-| `Node` | Stores a disk value and a reference to the next node. |
-| `Stack` | Implements a stack using linked nodes and provides operations such as `push`, `pop`, `peek`, and `is_empty`. |
-| `get_input()` | Displays the tower choices and returns the selected stack. |
-| Main game loop | Sets up the towers, accepts moves, checks move validity, displays the stacks, and detects completion. |
+| `1` | Create an account |
+| `2` | Log into an account |
+| `0` | Exit the application |
 
-## Notes
+## Account Menu
 
-- Tower selection uses the uppercase initials `L`, `M`, and `R`.
-- The code sets a maximum capacity of 1,000 disks per stack.
-- The program is an interactive manual puzzle; it does not automatically calculate or perform the solution.
+After a successful login, the account menu provides:
+
+| Option | Action |
+|---|---|
+| `1` | Display the current balance |
+| `2` | Add income |
+| `3` | Transfer money to another card |
+| `4` | Close the account |
+| `5` | Log out |
+| `0` | Exit the application |
+
+## Database
+
+The application connects to an SQLite database named `card.s3db` in the current working directory. It creates a `card` table if the table does not already exist.
+
+The table contains these columns:
+
+| Column | Description |
+|---|---|
+| `id` | Integer primary key |
+| `number` | Card number, stored as text |
+| `pin` | Account PIN, stored as text |
+| `balance` | Account balance, defaulting to `0` |
+
+The database file is created automatically when the application runs.
+
+## Card Number Validation
+
+The program uses the **Luhn algorithm** to calculate a checksum digit when generating a card number. It also uses a Luhn validation method when checking a recipient's card number before a transfer.
+
+## Project Structure
+
+```text
+.
+├── banking.py
+└── card.s3db       # Created automatically when the program runs
+```
+
+## Important Notes
+
+- Keep the generated card number and PIN private.
+- The database is stored locally in the folder from which the program is run.
+- This is a learning/demo project, not a production-ready banking system.
+- The current implementation uses SQL statements built with string interpolation. For real applications, use parameterized SQL queries to help prevent SQL injection, and use secure password/PIN hashing rather than storing PINs in plain text.
+- The transfer and balance-handling logic should be reviewed and tested carefully before using this code for anything beyond practice.
+
+## Author
+
+Add your name and contact details here if you would like to include author information.
