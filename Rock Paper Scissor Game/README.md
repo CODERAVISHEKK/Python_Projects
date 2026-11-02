@@ -18,7 +18,7 @@ A simple, interactive **Rock Paper Scissors** game built with Python. Play the c
 ## How to Run
 
 1. Make sure Python 3 is installed.
-2. Save the source code as `rock_paper_scissors.py`.
+2. Save the source code as `main.py`.
 3. Open a terminal or command prompt in the folder containing the file.
 4. Run:
 
