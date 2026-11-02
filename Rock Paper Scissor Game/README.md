@@ -22,15 +22,15 @@ A simple, interactive **Rock Paper Scissors** game built with Python. Play the c
 3. Open a terminal or command prompt in the folder containing the file.
 4. Run:
 
-   ```bash
-   python rock_paper_scissors.py
-   ```
+   
+   main.py
+
 
    If your system uses the `python3` command, run:
 
-   ```bash
-   python3 rock_paper_scissors.py
-   ```
+   
+   main.py
+   
 
 ## How to Play
 
@@ -48,20 +48,18 @@ A simple, interactive **Rock Paper Scissors** game built with Python. Play the c
 
 ## Example
 
-```text
 Choose rock, paper, or scissors: rock
 Computer chose: scissors
 You win!
-```
+
 
 *This is illustrative output; the exact prompts and formatting depend on your implementation.*
 
 ## Project Structure
 
-```text
 .
 └── rock_paper_scissors.py
-```
+
 
 ## Possible Improvements
 
@@ -69,7 +67,3 @@ You win!
 - Support multiple rounds.
 - Add input validation and a quit option.
 - Build a graphical interface using Pygame or Tkinter.
-
-## Author
-
-Add your name and contact details here if you want to include author information.
